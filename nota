@@ -1,0 +1,209 @@
+
+var barcos = 0;
+var barcosj2 = 0;
+var arreglo = creartablero();
+var arreglo2 = creartablero2();
+var div = document.getElementById('tablero1');
+var div2 = document.getElementById('tablero2');
+
+console.log(arreglo);
+console.log(arreglo2);
+
+
+insertabotones();
+//se crea el tablero del  jugador 1
+function creartablero() {
+    let arreglo = [];
+    for (let e = 0; e < 10; e++) {
+        arreglo[e] = [];
+        for (f = 0; f < 10; f++) {
+            arreglo[e][f] = 0;
+        }
+    }
+    return arreglo;
+}
+
+//se crea el tablero del jugador 2
+function creartablero2() {
+    let arreglo2 = [];
+    for (let e = 0; e < 10; e++) {
+        arreglo2[e] = [];
+        for (f = 0; f < 10; f++) {
+            arreglo2[e][f] = 0;
+        }
+    }
+    return arreglo2;
+}
+
+//se insertan los botones en el tablero del jugador 1
+function insertabotones() {
+    div
+    div2.style.display="none";
+    let top = 0;
+    for (let i = 0; i < 10; i++) {
+
+        let left = 0;
+        for (let a = 0; a < 10; a++) {
+            let boton = document.createElement('button');
+            boton.id = 'boton' + (i) + (a);
+            boton.classList = 'boton';
+            boton.style.left = left + '%';
+            boton.style.top = top + '%';
+            boton.style.position = 'absolute';
+            boton.onclick = function () {
+                let id = boton.id;
+                botonapret(id);
+            }
+            div.appendChild(boton);
+            left += 10;
+        }
+        top += 10;
+    }
+
+}
+
+//se insertan botones en el tablero del jugador 2
+function insertabotones2() {
+    div.style.display="none";
+    div2
+    let top = 0;
+    for (let i = 0; i < 10; i++) {
+
+        let left = 0;
+        for (let a = 0; a < 10; a++) {
+            let boton = document.createElement('button');
+            boton.id = 'boton' + (i) + (a);
+            boton.classList = 'boton';
+            boton.style.left = left + '%';
+            boton.style.top = top + '%';
+            boton.style.position = 'absolute';
+            boton.onclick = function () {
+                let id = boton.id;
+                botonapret2(id);
+            }
+            div2.appendChild(boton);
+            left += 10;
+        }
+        top += 10;
+    }
+
+}
+
+//jug2
+function botonapret2(id) {
+    if(barcosj2 <3){
+        let barcoanch = parseInt(prompt("de que anche quieres el barco " + "\n" + " 1, 2, 3 o 4"));
+        let boton = document.getElementById(id);
+        let posicionx = parseInt(id[5]);
+        let posiciony = parseInt(id[6]);
+       
+        for (let g = 0; g<1; g++){
+            console.log(posicionx);
+            console.log(posiciony);
+            barcosj2++;
+            console.log(barcosj2);
+            arreglo2[posicionx][posiciony]= 1;
+            //experimento
+            if(barcoanch> 4){
+                alert("esa cantidad es mas de lo que se te pidio mijo recapacita y vuelve a colocar tu barco");
+                //colocar sentencia para que no se siga ejecutando codigo
+
+
+            }
+            
+            if(posiciony<=8){
+                for(let i = 0; i<(barcoanch-1); i++){
+                    posiciony+=1;
+                    arreglo2[posicionx][posiciony]=1;
+        
+                }
+            }
+    
+            if(posiciony==9){
+                for(let i = 0; i<(barcoanch-1); i++){
+                    posiciony-=1;
+                    arreglo2[posicionx][posiciony]=1;
+        
+                }
+            }
+        }
+        console.log(arreglo2);
+       
+    }
+    if(barcosj2==3){
+        alert("ya colocastes todos tus barcos");
+    }
+}
+
+//jug1
+function botonapret(id) {
+    if(barcos <3){
+        let barcoanch = parseInt(prompt("de que anche quieres el barco " + "\n" + " 1, 2, 3 o 4"));
+        let boton = document.getElementById(id);
+        let posicionx = parseInt(id[5]);
+        let posiciony = parseInt(id[6]);
+       
+        for (let g = 0; g<1; g++){
+            console.log(posicionx);
+            console.log(posiciony);
+            barcos++;
+            console.log(barcos);
+            arreglo[posicionx][posiciony]= 1;
+            //experimento
+            if(barcoanch> 4){
+                alert("esa cantidad es mas de lo que se te pidio mijo recapacita y vuelve a colocar tu barco");
+                //colocar sentencia para que no se siga ejecutando codigo
+
+
+            }
+            
+            if(posiciony<=8){
+                for(let i = 0; i<(barcoanch-1); i++){
+                    posiciony+=1;
+                    arreglo[posicionx][posiciony]=1;
+        
+                }
+            }
+    
+            if(posiciony==9){
+                for(let i = 0; i<(barcoanch-1); i++){
+                    posiciony-=1;
+                    arreglo[posicionx][posiciony]=1;
+        
+                }
+            }
+        }
+        console.log(arreglo);
+       
+    }
+    if(barcos==3){
+        alert("ya colocastes todos tus barcos");
+        aparecebtonconfi1();
+    }
+}
+
+//aver que pasa
+function aparecebtonconfi1(){
+    if(barcos==3){
+        let confi1 = document.getElementById('contij1');
+        confi1.style.display="inline";
+
+        confi1.onclick = function(){
+            alert("turno del jugador 2 de colocar sus barcos");
+            div.style.display="none";
+            insertabotones2();
+            div2.style.display="inline";
+            alert("tablero jug2");
+
+        }
+    } 
+}
+
+
+
+
+
+
+
+
+

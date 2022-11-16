@@ -1,0 +1,79 @@
+body{
+    background-color: aqua;
+}
+
+
+#tablero1{
+    position: absolute;
+    background-color: aquamarine;
+    width: 60%;
+    height: 60%;
+    left: 20%;
+    top: 20%;
+}
+
+#tablero2{
+    position: absolute;
+    background-color: aquamarine;
+    width: 60%;
+    height: 60%;
+    left: 20%;
+    top: 20%;
+}
+
+#jug1{
+    color: blue ;
+    position: center;
+}
+
+.ataca{
+    position: absolute;
+    background-color: aqua;
+    width: 40%;
+    height: 60%;
+}
+
+#ataca1{
+    left: 5%;
+    top: 20%;
+}
+
+#ataca2{
+    right:5%;
+    top: 20%;
+}
+
+.boton{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+
+}
+
+.boton{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+
+}
+.texto{
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    font-size: 30px;
+    display: none;
+}
+#div-texto1{
+    left: 0;
+    top: 10%
+}
+#div-texto2{
+    right: 0;
+    top: 10%
+}
+#div-texto1 p{
+    margin-left: 25%;
+}
+#div-texto2 p{
+    margin-left: 25%;
+}
